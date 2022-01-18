@@ -16,6 +16,8 @@ public class Main {
         String searchSequence;
         String outputPath;
 
+        long startTime = System.currentTimeMillis();
+
         if(args.length != 3){
             inputPath = "mobile_log";
             searchSequence = "+79999999999";
@@ -38,6 +40,10 @@ public class Main {
 
         filteredDS.write().mode(SaveMode.Overwrite).text(outputPath);
         System.out.println("Save filtered string in " + outputPath);
+
+        long finishTime = System.currentTimeMillis();
+        long elapsedTime = finishTime - startTime;
+        System.out.println("Elapsed time: " + elapsedTime);
 
     }
 }
